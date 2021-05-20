@@ -3,10 +3,11 @@ name: version-utils CI
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
+      - fdepaz_test
 
 jobs:
   build:
