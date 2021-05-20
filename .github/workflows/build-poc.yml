@@ -1,0 +1,17 @@
+name: version-utils CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '8.17.0'
+      - run: npm install
+      - run: npm run ci-lint
+      - run: npm ci-lint
+      - run: npm ci-test
