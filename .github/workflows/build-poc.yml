@@ -13,5 +13,5 @@ jobs:
           node-version: '8.17.0'
       - run: npm install
       - run: npm run ci-lint
-      - run: npm ci-lint
-      - run: npm ci-test
+      - run: npm run ci-test
+      - run: npm run ci-cpd
