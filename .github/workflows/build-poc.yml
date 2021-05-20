@@ -1,6 +1,12 @@
 name: version-utils CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -14,4 +20,4 @@ jobs:
       - run: npm install
       - run: npm run lint
       - run: npm run test
-      - run: npm run cpd
+      - run: npm run ci-cpd
