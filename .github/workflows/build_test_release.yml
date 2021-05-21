@@ -41,5 +41,5 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ steps.tag_changelog.outputs.new_tag }}
-          name: "${{ github.repository.name }}-${{ steps.tag_changelog.outputs.new_tag }}"
+          name: "${{ github.event.repository.name }}-${{ steps.tag_changelog.outputs.new_tag }}"
           body: ${{ steps.tag_changelog.outputs.changelog }}
