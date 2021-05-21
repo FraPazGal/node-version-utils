@@ -29,7 +29,7 @@ jobs:
       - name: ls
         run: ls ../ -la
       - name: Check version
-        run: echo "::set-output name=version::$(jq -r '.version' package.json)"
+        run: echo "::set-output name=version::echo \"v$(jq -r .version ../node-version-utils/package.json)\""
         id: version
       - name: Release
         uses: "marvinpinto/action-automatic-releases@v1.2.0"
