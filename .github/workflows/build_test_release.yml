@@ -27,7 +27,7 @@ jobs:
     needs: build
     steps:
       - name: ls
-        run: ls ../ -la
+        run: ls ../node-version-utils -la
       - name: Check version
         run: echo "::set-output name=version::echo \"v$(jq -r .version ../node-version-utils/package.json)\""
         id: version
