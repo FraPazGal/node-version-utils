@@ -40,6 +40,6 @@ jobs:
         uses: "ncipollo/release-action@v1"
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ steps.github_release.outputs.tag_changelog.new_tag }}
-          name: "${{ github.repository.name }}-${{ steps.github_release.outputs.tag_changelog.new_tag }}"
-          body: ${{ steps.github_release.outputs.tag_changelog.changelog }}
+          tag: ${{ steps.tag_changelog.outputs.new_tag }}
+          name: "${{ github.repository.name }}-${{ steps.tag_changelog.outputs.new_tag }}"
+          body: ${{ steps.tag_changelog.outputs.changelog }}
