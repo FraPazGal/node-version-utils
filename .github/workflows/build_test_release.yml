@@ -32,10 +32,15 @@ jobs:
       - name: Check version
         run: echo "::set-output name=version::$(jq -r .version package.json)"
         id: version
+      - name: Changelog
+        uses: mikepenz/release-changelog-builder-action@v1.8.1
+        id: changelog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Release
-        uses: "marvinpinto/action-automatic-releases@v1.2.0"
+        uses: "ncipollo/release-action@v1"
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "v${{ steps.version.outputs.version }}"
-          title: "${{github.repository.name}}-v${{ steps.version.outputs.version }}"
-          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: "v${{ steps.version.outputs.version }}"
+          name: "${{ github.repository.name }}-v${{ steps.version.outputs.version }}"
+          body: ${{steps.github_release.outputs.changelog}}
