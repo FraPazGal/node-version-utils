@@ -27,7 +27,7 @@ jobs:
     needs: build
     steps:
       - name: ls
-        run: ls -la
+        run: ls ../ -la
       - name: Check version
         run: echo "::set-output name=version::$(jq -r '.version' package.json)"
         id: version
@@ -35,6 +35,6 @@ jobs:
         uses: "marvinpinto/action-automatic-releases@v1.2.0"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "${{ steps.version.outputs.version }}"
+          automatic_release_tag: "v${{ steps.version.outputs.version }}"
           title: "${{github.repository}}-v${{ steps.version.outputs.version }}"
           prerelease: false
