@@ -27,20 +27,20 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v2
-      - name: ls
-        run: ls -la
       - name: Check version
         run: echo "::set-output name=version::$(jq -r .version package.json)"
         id: version
-      - name: Changelog
-        uses: mikepenz/release-changelog-builder-action@v1.8.1
-        id: changelog
+      - name: Tag and changelog
+        uses: mathieudutour/github-tag-action@v5.5
+        id: tag_changelog
+        with:
+          custom_tag: {{ steps.version.outputs.version }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Release
         uses: "ncipollo/release-action@v1"
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: "v${{ steps.version.outputs.version }}"
-          name: "${{ github.repository.name }}-v${{ steps.version.outputs.version }}"
-          body: ${{steps.github_release.outputs.changelog}}
+          tag: ${{ steps.github_release.outputs.tag_changelog.new_tag }}
+          name: "${{ github.repository.name }}-${{ steps.github_release.outputs.tag_changelog.new_tag }}"
+          body: ${{ steps.github_release.outputs.tag_changelog.changelog }}
