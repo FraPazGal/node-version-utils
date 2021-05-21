@@ -1,3 +1,5 @@
+Testing changes and PRs with multiples commits.
+
 Bitnami Individual Contributor License Agreement ("Agreement") V1.0
 
 Thank you for your interest in Bitnami open source technologies (hereafter,
