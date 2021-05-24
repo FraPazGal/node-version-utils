@@ -20,7 +20,7 @@ jobs:
       - name: Test
         run: npm run test
       - name: Copy&Paste detection
-        run: npm run ci-cpd
+        run: npm run cpd
 
   launch-release:
     runs-on: ubuntu-latest
