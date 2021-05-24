@@ -39,6 +39,8 @@ jobs:
       - name: Build changelog
         id: changelog
         uses: mikepenz/release-changelog-builder-action@v1
+        with:
+          from_tag: ${{ steps.tag.outputs.new_tag }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Release
