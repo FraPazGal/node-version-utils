@@ -47,4 +47,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ steps.tag.outputs.new_tag }}
           name: "${{ github.event.repository.name }}-${{ steps.tag.outputs.new_tag }}"
-          body: ${{ steps.changelog.outputs.changelog }}
+          body: |
+            Release ${{ steps.tag.outputs.new_tag }} includes the following commits:
+
+            ${{ steps.changelog.outputs.changelog }}
