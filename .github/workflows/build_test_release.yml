@@ -39,8 +39,8 @@ jobs:
       - name: Generate changelog
         id: changelog
         uses: metcalfc/changelog-generator@v1.0.0
-          with:
-            myToken: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          myToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Release
         uses: ncipollo/release-action@v1
         with:
