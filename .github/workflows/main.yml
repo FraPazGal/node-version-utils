@@ -22,7 +22,7 @@ jobs:
       - name: Copy&Paste detection
         run: npm run cpd
 
-  launch-release:
+  release:
     runs-on: ubuntu-latest
     needs: build
     steps:

@@ -1,11 +1,9 @@
-name: Build & Test in PRs
+name: Build & Test - PR
 
 on:
   pull_request:
     branches:
-      - master
-      - fdepaz_test
-
+      - *
 jobs:
   build:
     runs-on: ubuntu-latest

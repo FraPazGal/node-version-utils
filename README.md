@@ -1,8 +1,8 @@
-[![Build Status](https://api.travis-ci.org/bitnami/node-version-utils.svg?branch=master)](http://travis-ci.org/bitnami/node-version-utils)
+[![Build Status](https://github.com/bitnami/nami/actions/workflows/main.yml/badge.svg)](https://github.com/FraPazGal/node-version-utils/actions/workflows/main.yml)
 
 # Version Utils
 
-This package is a toolset for dealing with versioning. TEST
+This package is a toolset for dealing with versioning.
 
 # About
 
