@@ -51,8 +51,10 @@ jobs:
         uses: metcalfc/changelog-generator@v1.0.0
         with:
           myToken: ${{ secrets.GITHUB_TOKEN }}
+      - run: echo ${{ steps.previous_tag.outputs.previous_tag }} 
+      - run: echo ${{ steps.new_tag.outputs.new_tag }}
       - name: Release
-        if: ${{ steps.new_tag.outputs.new_tag != steps.previous_tag.outputs.previous_tag }}
+        if: steps.new_tag.outputs.new_tag != steps.previous_tag.outputs.previous_tag
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
