@@ -52,7 +52,7 @@ jobs:
         with:
           myToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Release
-        if: ${{ steps.new_tag.outputs.new_tag > steps.previous_tag.outputs.previous_tag }}
+        if: ${{ steps.new_tag.outputs.new_tag != steps.previous_tag.outputs.previous_tag }}
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
