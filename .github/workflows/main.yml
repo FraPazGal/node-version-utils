@@ -44,7 +44,7 @@ jobs:
         run: echo "::set-output name=previous_tag::$(git describe --abbrev=0 --tags)"
         id: previous_tag
       - name: Tag release
-        if: 'v${{ steps.version.outputs.version }}' > steps.previous_tag.outputs.previous_tag
+        if: v${{ steps.version.outputs.version }} > steps.previous_tag.outputs.previous_tag
         uses: mathieudutour/github-tag-action@v5.5
         id: new_tag
         with:
