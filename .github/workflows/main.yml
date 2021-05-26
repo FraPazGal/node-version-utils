@@ -37,9 +37,8 @@ jobs:
         with:
           fetch-depth: 0
       - name: Check version
-        run: echo "::set-output name=version::$(echo v$(jq -r .version package.json)))"
+        run: echo "::set-output name=version::$(echo v$(jq -r .version package.json))"
         id: version
-      - run: echo '${{ steps.version.outputs.version }}'
       - name: Previous tag
         run: echo "::set-output name=previous_tag::$(git describe --abbrev=0 --tags)"
         id: previous_tag
@@ -50,6 +49,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           custom_tag: ${{ steps.version.outputs.version }}
+          tag_prefix: ''
       - name: Generate changelog
         if: steps.new_tag.outcome == 'success'
         id: changelog
