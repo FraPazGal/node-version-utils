@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/bitnami/nami/actions/workflows/main.yml/badge.svg)](https://github.com/FraPazGal/node-version-utils/actions/workflows/main.yml)
+[![Build Status](https://github.com/FraPazGal/node-version-utils/actions/workflows/main.yml/badge.svg)](https://github.com/FraPazGal/node-version-utils/actions/workflows/main.yml)
 
 # Version Utils
 
